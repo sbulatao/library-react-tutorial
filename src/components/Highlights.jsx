@@ -17,36 +17,18 @@ export default function Highlights() {
                         title="Easy and Quick"
                         para="Get access to the books you purchsed online instantly."
                     />
+                    
+                    <Highlight 
+                        icon={<FontAwesomeIcon icon="book-open"/>} 
+                        title="10,000+ Books"
+                        para="Library has books in all your favorite categories."
+                    />
 
-                    <div className="highlight">
-                        <div className="highlight__img">
-                            <FontAwesomeIcon icon="bolt"> </FontAwesomeIcon>
-                        </div>
-                        <h3 className="highlight__subtitle">Easy and Quick</h3>
-                        <p className="highlight__para">
-                            Get access to the books you purchsed online instantly.
-                        </p>
-                    </div>
-
-                    <div className="highlight">
-                        <div className="highlight__img">
-                            <FontAwesomeIcon icon="book-open"> </FontAwesomeIcon>
-                        </div>
-                        <h3 className="highlight__subtitle">10,000+ Books</h3>
-                        <p className="highlight__para">
-                            Library has books in all your favorite categories.
-                        </p>
-                    </div>
-
-                    <div className="highlight">
-                        <div className="highlight__img">
-                            <FontAwesomeIcon icon="tags"> </FontAwesomeIcon>
-                        </div>
-                        <h3 className="highlight__subtitle">Affordable</h3>
-                        <p className="highlight__para">
-                            Get your hands on popular books for as little as $10.
-                        </p>
-                    </div>
+                    <Highlight 
+                        icon={<FontAwesomeIcon icon="tags"/>} 
+                        title="Affordable"
+                        para="Get your hands on popular books for as little as $10."
+                    />
 
                 </div>
             </div>
