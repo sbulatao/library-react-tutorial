@@ -26,9 +26,12 @@ export default function Book({ book }) {
         </div>
         <div className="book__ratings">
             {   // RATING HERE
-                new Array(5).fill(0).map((_, index) =>
+                new Array(Math.floor(book.rating)).fill(0).map((_, index) =>
                     <FontAwesomeIcon icon="star" key={index} />
                 )
+            }
+            {   // HALF STAR. if book rating is a number print nothing else print half-star
+                Number.isInteger(book.rating) ? '' : <FontAwesomeIcon icon="star-half-alt"/>
             }
         </div>
 
