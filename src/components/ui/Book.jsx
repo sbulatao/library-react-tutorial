@@ -31,7 +31,7 @@ export default function Book({ book }) {
                 )
             }
             {   // HALF STAR. if book rating is a number print nothing else print half-star
-                Number.isInteger(book.rating) ? '' : <FontAwesomeIcon icon="star-half-alt"/>
+                !Number.isInteger(book.rating) && <FontAwesomeIcon icon="star-half-alt"/>
             }
         </div>
 
