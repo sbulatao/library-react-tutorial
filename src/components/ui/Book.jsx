@@ -1,5 +1,7 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+import Rating from './Rating';
 
 export default function Book({ book }) {
     const rating = 4;
@@ -11,28 +13,22 @@ export default function Book({ book }) {
 
   return (
      <div className="book">
-        <a href="">
+        <Link to="/books/1">
             <figure className="book__img--wrapper">
                 <img src={book.url}
                 alt="" 
                 className="book__img" 
                 />
             </figure>
-        </a>
+        </Link>
         <div className="book__title">
-            <a href="/" className='book__title--link'>
+            <Link to="/books/1" className='book__title--link'>
                 {book.title}
-            </a>
+            </Link>
         </div>
         <div className="book__ratings">
-            {   // RATING HERE
-                new Array(Math.floor(book.rating)).fill(0).map((_, index) =>
-                    <FontAwesomeIcon icon="star" key={index} />
-                )
-            }
-            {   // HALF STAR. if book rating is a number print nothing else print half-star
-                !Number.isInteger(book.rating) && <FontAwesomeIcon icon="star-half-alt"/>
-            }
+            {/* RATING */}
+            <Rating rating={book.rating}/>
         </div>
 
         <div className="book__price">
