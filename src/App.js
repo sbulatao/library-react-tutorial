@@ -13,12 +13,15 @@ function App() {
 
   function addToCart(book){
     // console.log('add to cart', book)
-    setCart([...cart, book])
+    const dupeItem = cart.find(item => +item.id === +book.id)
+    console.log(dupeItem)
+
+    setCart([...cart, {...book, quantity: 1}])
     // console.log(cart);
   }
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart);
   }, [cart])
 
   return (
