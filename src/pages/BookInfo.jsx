@@ -29,7 +29,7 @@ export default function BookInfo({ books }) {
                     </div>
                     <div className="book__selected">
                         <figure className="book_selected--figure">
-                            <img src={book.url} alt="" className="book__selected--ig"/>
+                            <img src={book.url} alt="" className="book__selected--img"/>
                         </figure>
                         
                         <div className="book__selected--description">
@@ -72,6 +72,7 @@ export default function BookInfo({ books }) {
                     </div>
                 </div>
             </div>
+
         </main>
     </div>        
     )
