@@ -5,13 +5,19 @@ import Rating from '../components/ui/Rating';
 import Price from '../components/ui/Price';
 import Book from '../components/ui/Book';
 
-export default function BookInfo({ books, addToCart }) {
+export default function BookInfo({ books, addToCart, cart }) {
     const { id } = useParams();
-    // console.log(params);
-    // const book = books.find(book => book.id === id);
-    // const book = books.find(book => parseFloat(book.id) === parseFloat(id));
-    const book = books.find(book => +book.id === +id); //str to num
-    // console.log(book);
+    const book = books.find((book) => +book.id === +id); //str to num
+    // const [added, setAdded] = useState(false);
+
+    function addBookToCart(book){
+        // setAdded(true);
+        addToCart(book);
+    }
+
+    function bookExistsOnCart(){
+        return cart.find(book => book.id === +id);
+    }
 
     return (
     <div id="books__body">
@@ -48,9 +54,15 @@ export default function BookInfo({ books, addToCart }) {
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati ab nulla repellat ex quas, consequatur accusamus fugiat labore odit expedita voluptate natus, quod dignissimos? Cum accusamus fugiat quia! Quia, necessitatibus.
                                 </p>
                             </div>
-                            <button className="btn" onClick={() => addToCart(book)}>
-                                Add to Cart
-                            </button>
+                            {bookExistsOnCart() ? (
+                                <Link to={`/cart`} className="book__link">
+                                    <button className="btn">Checkout</button> 
+                                </Link>
+                            ) : (
+                                <button className="btn" onClick={() => addBookToCart(book)}>
+                                    Add to Cart
+                                </button>)
+                            }
                         </div>
                     </div>
                 </div>
