@@ -13,7 +13,7 @@ function App() {
 
   function addToCart(book){
     // console.log('add to cart', book)
-    setCart([book])
+    setCart([...cart, book])
     // console.log(cart);
   }
 
