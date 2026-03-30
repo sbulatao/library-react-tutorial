@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import Footer from './components/Footer';
@@ -12,8 +12,14 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(book){
-    console.log('add to cart', book)
+    // console.log('add to cart', book)
+    setCart([book])
+    // console.log(cart);
   }
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart])
 
   return (
     <Router>
