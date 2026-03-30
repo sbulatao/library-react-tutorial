@@ -1,16 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Rating from '../components/ui/Rating';
 import Price from '../components/ui/Price';
+import Book from '../components/ui/Book';
 
 export default function BookInfo({ books }) {
-  return (
+    const { id } = useParams();
+    // console.log(params);
+    // const book = books.find(book => book.id === id);
+    // const book = books.find(book => parseFloat(book.id) === parseFloat(id));
+    const book = books.find(book => +book.id === +id); //str to num
+    // console.log(book);
+
+    return (
     <div id="books__body">
         <main id="books__main">
             <div className="books__container">
                 <div className="row">
-                    <div className="books__selected--top">
+                    <div className="book__selected--top">
                         <Link to="/books" className="book__link">
                         <FontAwesomeIcon icon="arrow-left"/>
                         </Link>
@@ -21,21 +29,50 @@ export default function BookInfo({ books }) {
                     </div>
                     <div className="book__selected">
                         <figure className="book_selected--figure">
-                            <img src="https://m.media-amazon.com/images/I/61mIq2iJUXL._AC_UF1000,1000_QL80_.jpg" alt="" />
+                            <img src={book.url} alt="" className="book__selected--ig"/>
                         </figure>
                         
                         <div className="book__selected--description">
-                            <h2 className="book__selected--title">Cracking the Coding Interview</h2>
+                            <h2 className="book__selected--title">{book.title}</h2>
                             {/* <FontAwesomeIcon icon="star" /> */}
-                            <Rating rating="4.5" />
+                            <Rating rating={book.rating} />
                             <div className="book__selected--price">
-                                <Price originalPrice={50} salePrice={20} />
+                                <Price originalPrice={book.originalPrice} salePrice={book.salePrice} />
                             </div>
+                            <div className="book__summary">
+                                <h3 className="book__summary--title">Summary</h3>
+                                <p className="book__summary--para">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati ab nulla repellat ex quas, consequatur accusamus fugiat labore odit expedita voluptate natus, quod dignissimos? Cum accusamus fugiat quia! Quia, necessitatibus.
+                                </p>
+                                <p className="book__summary--para">
+                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati ab nulla repellat ex quas, consequatur accusamus fugiat labore odit expedita voluptate natus, quod dignissimos? Cum accusamus fugiat quia! Quia, necessitatibus.
+                                </p>
+                            </div>
+                            <button className="btn">
+                                Add to Cart
+                            </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="books__container">
+                <div className="row">
+                    <div className="book__selected--top">
+                        <h2 className="book__selected--title--top">
+                            Recommended Books
+                        </h2>
+                    </div>
+                    <div className="books">
+                        {books
+                        .filter(book => book.rating === 5 && +book.id !== +id) //str to num
+                        .slice(0, 4)
+                        .map(book => <Book book={book} key={book.id} />)
+                        }
                     </div>
                 </div>
             </div>
         </main>
     </div>        
-  )
+    )
 }
