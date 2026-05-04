@@ -26,7 +26,7 @@ export default function BookInfo({ books, addToCart, cart }) {
                 <div className="row">
                     <div className="book__selected--top">
                         <Link to="/books" className="book__link">
-                        <FontAwesomeIcon icon="arrow-left"/>
+                            <FontAwesomeIcon icon="arrow-left"/>
                         </Link>
 
                         <Link to="/books" className="book__link">
@@ -54,6 +54,7 @@ export default function BookInfo({ books, addToCart, cart }) {
                                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati ab nulla repellat ex quas, consequatur accusamus fugiat labore odit expedita voluptate natus, quod dignissimos? Cum accusamus fugiat quia! Quia, necessitatibus.
                                 </p>
                             </div>
+                            <>
                             {bookExistsOnCart() ? (
                                 <Link to={`/cart`} className="book__link">
                                     <button className="btn">Checkout</button> 
@@ -63,6 +64,7 @@ export default function BookInfo({ books, addToCart, cart }) {
                                     Add to Cart
                                 </button>)
                             }
+                            </>
                         </div>
                     </div>
                 </div>

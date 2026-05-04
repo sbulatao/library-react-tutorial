@@ -10,7 +10,7 @@ export default function Explore() {
                     Explore More <span className="purple">Books</span>
                 </h2>
                 <Link to="/books">
-                <button className="btn">Explore Books</button>
+                    <button className="btn">Explore Books</button>
                 </Link>
             </div>
         </div>
