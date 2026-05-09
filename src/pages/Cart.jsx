@@ -7,7 +7,7 @@ export default function Cart({ cart, changeQuantity }) {
     const total = () => {
         let price = 0;
         cart.forEach((item) => {
-            price += (item.salePrice || item.originalPrice).toFixed(2);
+            price += (item.salePrice || item.originalPrice) * item.quantity;
         });
         return price;
     }

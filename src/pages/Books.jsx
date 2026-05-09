@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { books } from '../data' 
 import Book from '../components/ui/Book'
 
 const Books = ({ books: initialBooks}) => {
     const [books, setBooks] = useState(initialBooks);
+
+    useEffect(() => {
+        setBooks(initialBooks);
+    }, [initialBooks]);
 
     function filterBooks(filter){
         console.log(filter)

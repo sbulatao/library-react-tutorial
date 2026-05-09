@@ -6,30 +6,26 @@ import Price from './Price';
 export default function Book({ book }) {
     const [img, setImg] = useState();
 
-    // function imageLoaded(){
-    //     console.log('imageLoaded')
-    // }
-
     const mountedRef = useRef(true);
 
     useEffect(() => {
         const image = new Image();
         image.src = book.url;
-        image.onLoad = () => {
+        image.onload = () => {
             setTimeout(() => {
                 if (mountedRef.current) {
                     setImg(image);
                 }
             }, 300);
         };
-        return () => {
-            // When the component unmounts
-            mountedRef.current = false;
-        }
-    })
+        // return () => {
+        //     // When the component unmounts
+        //     mountedRef.current = false;
+        // }
+    }, [book.url])
 
   return (
-     <div className="book">
+    <div className="book">
         {img ? (
             <>
             <Link to={`/books/${book.id}`}>
@@ -56,7 +52,6 @@ export default function Book({ book }) {
             </>
             ) 
         }
-        
     </div>
   )
 }

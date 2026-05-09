@@ -49,7 +49,7 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(cart);
+      console.log(cart);
   }, [cart])
 
   return (
