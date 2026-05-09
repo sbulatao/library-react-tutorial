@@ -1,6 +1,6 @@
 import React from 'react';
 import UndrawBooks from '../assets/Undraw_Books.svg';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export default function Landing() {
   return (

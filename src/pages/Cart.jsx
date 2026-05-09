@@ -1,6 +1,6 @@
 import React from 'react';
 import EmptyCart from "../assets/empty_cart.svg";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export default function Cart({ cart, changeQuantity }) {
 
