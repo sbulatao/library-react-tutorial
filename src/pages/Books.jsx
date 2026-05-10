@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { books } from '../data' 
+import { books as allBooks } from '../data' 
 import Book from '../components/ui/Book'
 
 const Books = ({ books: initialBooks}) => {
-    const [books, setBooks] = useState(initialBooks);
+    const [books, setBooks] = useState(initialBooks || allBooks);
 
     useEffect(() => {
         setBooks(initialBooks);
